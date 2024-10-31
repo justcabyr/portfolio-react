@@ -2,7 +2,8 @@ import './Hero.scss';
 
 function Hero() {
   return (
-    <section className='hero'>
+    <section className="hero">
+      <img src="" alt="a logo of a computer" />
       <h2>AbdulKabir Sulaiman</h2>
       <p>Fullstack Developer</p>
     </section>
