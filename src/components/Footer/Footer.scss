@@ -1,4 +1,7 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
 .footer{
-    background-color: #1f1f1f;
-    color: #fff
+    background-color: $black;
+    color: $white
 }

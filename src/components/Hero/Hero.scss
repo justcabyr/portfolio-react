@@ -1,4 +1,7 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
 .hero {
-  background-color: #e9d5a1;
+  background-color: $yellow;
   width: 100vw;
 }
