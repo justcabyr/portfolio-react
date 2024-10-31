@@ -1,10 +1,16 @@
-import './App.css';
+import './App.scss';
+import Footer from './components/Footer/Footer';
+import Hero from './components/Hero/Hero';
+import Main from './components/Main/Main';
 
 function App() {
   return (
-    <>
+    <div>
+      <Hero />
       <p>portfolio</p>
-    </>
+      <Main />
+      <Footer />
+    </div>
   );
 }
 
