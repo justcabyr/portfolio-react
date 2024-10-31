@@ -2,10 +2,10 @@ import './Footer.scss';
 
 function Footer() {
   return (
-  <section>
-    <p>Copyright</p>
-  </section>
-  )
+    <section className='footer'>
+      <p>Copyright &copy; AbdulKabir Sulaiman</p>
+    </section>
+  );
 }
 
 export default Footer;
