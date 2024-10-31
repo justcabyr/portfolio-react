@@ -1,22 +1,26 @@
-@use "./styles/partials/typography" as *;
+@use './styles/partials/typography' as *;
 
 #root {
-  max-width: 1280px;
+  // max-width: 1280px;
   margin: 0 auto;
-  padding: 1rem 0;
   text-align: center;
 }
 
 body {
     width: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: HelveticaNow, Helvetica;
+  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  font-family: HelveticaNow, Helvetica;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
