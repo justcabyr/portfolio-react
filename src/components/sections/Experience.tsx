@@ -1,10 +1,25 @@
 const Experience = () => {
   const experiences = [
     {
-      company: "Company Name",
-      position: "Senior Developer",
-      period: "2020 - Present",
-      description: "Led development of multiple web applications using React and Node.js",
+      company: "Tech Corp",
+      position: "Senior Full Stack Developer",
+      period: "2022 - Present",
+      description:
+        "Led development of enterprise-scale applications using Next.js and Node.js. Mentored junior developers and implemented CI/CD pipelines.",
+    },
+    {
+      company: "Startup Inc",
+      position: "Frontend Developer",
+      period: "2020 - 2022",
+      description:
+        "Built responsive web applications using React and TypeScript. Improved application performance by 40% through code optimization.",
+    },
+    {
+      company: "Digital Agency",
+      position: "Web Developer",
+      period: "2018 - 2020",
+      description:
+        "Developed custom websites and e-commerce solutions. Collaborated with designers to implement pixel-perfect interfaces.",
     },
     // Add more experiences
   ];
