@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+---
+
+<Layout>
+  <NavBar />
+  <div class="mb-8 flex flex-col gap-6">
+    <h1 class="text-4xl font-bold">Blog</h1>
+    {
+      posts.map((post) => (
+        <div>
+          <a href={`/posts/${post.id}`}>
+            <p>
+              {post.data.title} - {post.data.description}
+            </p>
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</Layout>
