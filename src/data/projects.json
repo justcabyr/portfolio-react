@@ -5,7 +5,7 @@
       {
         "name": "NestJs Scaffold",
         "description": "NestJs Scaffold",
-        "link": "https://github.com/justcabyr/nestjs-scaffold",
+        "link": "https://github.com/justcabyr/nestjs-scaffold"
       }
     ]
   },
@@ -15,8 +15,8 @@
       {
         "name": "My GPT",
         "description": "Access premium GPT services on a budget.",
-        "link": "https://github.com/justcabyr/my-gpt",
-      },
+        "link": "https://github.com/justcabyr/my-gpt"
+      }
     ]
   },
   {
@@ -25,8 +25,8 @@
       {
         "name": "Node.js OpenAI",
         "description": "An advanced AI-powered backend application; AI chat interfaces, semantic search, document QA, function calling, and AI images",
-        "link": "https://github.com/justcabyr/nodejs-openai",
-      },
+        "link": "https://github.com/justcabyr/nodejs-openai"
+      }
     ]
   },
   {
@@ -35,9 +35,8 @@
       {
         "name": "Leetcode Problems JS",
         "description": "Leetcode problems in JavaScript",
-        "links": "https://github.com/justcabyr/leetcode-problems-js",
+        "link": "https://github.com/justcabyr/leetcode-problems-js"
       }
     ]
   }
-  
 ]
