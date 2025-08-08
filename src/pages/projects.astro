@@ -6,31 +6,27 @@ import projects from '../data/projects.json';
 
 <Layout>
   <NavBar />
-  <h1 class="mb-6 font-serif text-5xl font-bold">Projects</h1>
+  <h1 class="mb-6 font-serif text-5xl font-bold">Projects I worked on</h1>
   <div class="space-y-6 text-lg leading-relaxed">
-    {
-      projects.map(
-        (project: {
-          year: number;
-          tree: { name: string; link: string; description: string }[];
-        }) => (
-          <div>
-            <h2 class="text-2xl font-bold">{project.year}</h2>
-            <div class="mt-4 space-y-4">
-              {project.tree.map(
+    <div>
+      <div class="mt-4 space-y-4">
+        {
+          projects
+            .map((project) =>
+              project.tree.map(
                 (item: { name: string; link: string; description: string }) => (
                   <div>
                     <a href={item.link} class="text-orange-600 hover:underline">
-                      <p class="font-medium">{item.name}</p>
+                      <h2 class="text-xl font-bold">{item.name}</h2>
                     </a>
                     <p class="text-gray-600">{item.description}</p>
                   </div>
                 )
-              )}
-            </div>
-          </div>
-        )
-      )
-    }
+              )
+            )
+            .flat()
+        }
+      </div>
+    </div>
   </div>
 </Layout>
