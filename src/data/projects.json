@@ -4,7 +4,8 @@
       {
         "name": "NestJs Scaffold",
         "description": "NestJs Scaffold",
-        "link": "https://github.com/justcabyr/nestjs-scaffold"
+        "link": "https://github.com/justcabyr/nestjs-scaffold",
+        "image": "https://garden.jack.camera/Screenshot_2025-02-01_at_11.31.09%E2%80%AFPM_1738465273469_0.png"
       }
     ]
   },
@@ -13,7 +14,8 @@
       {
         "name": "My GPT",
         "description": "Access premium GPT services on a budget.",
-        "link": "https://github.com/justcabyr/my-gpt"
+        "link": "https://github.com/justcabyr/my-gpt",
+        "image": "https://garden.jack.camera/Screenshot_2025-02-01_at_11.31.09%E2%80%AFPM_1738465273469_0.png"
       }
     ]
   },
@@ -22,7 +24,8 @@
       {
         "name": "Node.js OpenAI",
         "description": "An advanced AI-powered backend application; AI chat interfaces, semantic search, document QA, function calling, and AI images",
-        "link": "https://github.com/justcabyr/nodejs-openai"
+        "link": "https://github.com/justcabyr/nodejs-openai",
+        "image": "https://garden.jack.camera/Screenshot_2025-02-01_at_11.31.09%E2%80%AFPM_1738465273469_0.png"
       }
     ]
   },
@@ -31,7 +34,8 @@
       {
         "name": "Leetcode Problems JS",
         "description": "Leetcode problems in JavaScript",
-        "link": "https://github.com/justcabyr/leetcode-problems-js"
+        "link": "https://github.com/justcabyr/leetcode-problems-js",
+        "image": "https://garden.jack.camera/Screenshot_2025-02-01_at_11.31.09%E2%80%AFPM_1738465273469_0.png"
       }
     ]
   }
