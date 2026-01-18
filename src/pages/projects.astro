@@ -2,31 +2,43 @@
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
 import projects from '../data/projects.json';
+
+const items = projects.flatMap((project) => project.tree);
 ---
 
 <Layout>
   <NavBar />
   <h1 class="mb-6 font-serif text-5xl font-bold">Projects I worked on</h1>
   <div class="space-y-6 text-lg leading-relaxed">
-    <div>
-      <div class="mt-4 space-y-4">
-        {
-          projects
-            .map((project) =>
-              project.tree.map(
-                (item: { name: string; link: string; description: string }) => (
-                  <div>
-                    <a href={item.link} class="text-orange-600 hover:underline">
-                      <h2 class="text-xl font-bold">{item.name}</h2>
-                    </a>
-                    <p class="text-gray-600">{item.description}</p>
-                  </div>
-                )
-              )
-            )
-            .flat()
-        }
-      </div>
-    </div>
+  <p>
+    I'm a backend engineer that likes to build things that are fast and scalable.
+  </p>
+  <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      items.map((item) => (
+        <div>
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block overflow-hidden rounded-xl border border-gray-200 bg-white/60 shadow-sm transition hover:bg-white hover:shadow-md"
+          >
+            <img
+              src={item.image}
+              alt={item.name}
+              class="h-40 w-full object-cover"
+              loading="lazy"
+            />
+            {/* <div class="p-4">
+            </div> */}
+          </a>
+              <h2 class="text-lg font-bold text-gray-900 group-hover:text-orange-700">
+                {item.name}
+              </h2>
+          <p class="mt-2 text-sm text-gray-600">{item.description}</p>
+        </div>
+      ))
+    }
+  </div>
   </div>
 </Layout>
