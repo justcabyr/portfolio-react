@@ -3,43 +3,43 @@ const workExperience = [
   {
     company: 'techNL',
     role: 'Tech Talent Lead',
-    dates: 'March 2023 - Present',
+    dates: 'March 2023 - Present'
   },
   {
     company: 'OneLiquidity',
     role: 'Fullstack Customer Experience Engineer',
-    dates: 'September 2021 - March 2023',
+    dates: 'September 2021 - March 2023'
   },
   {
     company: 'OPay',
     role: 'Senior Application Support Engineer',
-    dates: 'February 2021 - April 2020',
+    dates: 'February 2021 - April 2020'
   },
   {
     company: 'Cyberfleet',
     role: 'Backend Engineer',
-    dates: 'February 2020 - September 2021',
+    dates: 'February 2020 - September 2021'
   },
   {
     company: 'TQ STEM Academy',
     role: 'Software Engineer',
-    dates: 'July 2018 - Jan 2020',
-  },
+    dates: 'July 2018 - Jan 2020'
+  }
 ];
 ---
 
 <h1 class="mb-6 font-serif text-5xl font-bold">Welcome</h1>
 <div class="space-y-6 text-lg leading-relaxed">
   <p>
-    About me? I have more love for backend than frontend, and I really
-    love working with people.
-  </p>
-  <p>
-    I'm currently working as Tech Talent Lead at <a
+    AbdulKabir here. I currently work as Tech Talent Lead at <a
       href="https://technl.ca/"
       class="text-orange-600 hover:underline">techNL</a
-    >, where I mentor and support folks looking for job in tech. My last role
-    was a Fullstack Customer Experience Engineer - client facing engineer sort of.
+    >, where I mentor and support folks looking for work in tech. My last role
+    was a Fullstack Customer Experience Engineer.
+  </p>
+  <p>
+    I'm more comfortable doing backend things to frontend, and I really
+    love working with people. In recent years, I've been a lot more people and business facing
   </p>
   <p>
     I lead <a
@@ -47,7 +47,8 @@ const workExperience = [
       class="text-orange-600 hover:underline"
       >Google Developer Groups St. John's</a
     >. Hosting meetups and workshops for folks to learn about tech and build
-    things. I've had talks on design, developer productivity, AI, web, cloud, docker, android, technical writing, sales, startupings and many more.
+    things. I've had talks on design, developer productivity, AI, web, cloud,
+    docker, android, technical writing, sales, startupings and many more.
   </p>
   <p>I'm not just focused on coding, shoot me any talk idea you have.</p>
   <p>
@@ -66,27 +67,26 @@ const workExperience = [
   <section class="mt-10 space-y-4">
     <h2 class="text-2xl font-bold">Work Experience</h2>
     <ul class="space-y-6">
-      {workExperience.map((item) => (
-        <li class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-          <div class="flex items-start gap-4">
-            <div
-              class="flex h-14 w-14 items-center justify-center rounded-full border border-gray-200 bg-white text-base font-semibold text-gray-700"
-            >
-              {item.company
-                .split(' ')
-                .map((word) => word[0])
-                .join('')
-                .slice(0, 1)}
+      {
+        workExperience.map((item) => (
+          <li class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div class="flex items-start gap-4">
+              <div class="flex h-14 w-14 items-center justify-center rounded-full border border-gray-200 bg-white text-base font-semibold text-gray-700">
+                {item.company
+                  .split(' ')
+                  .map((word) => word[0])
+                  .join('')
+                  .slice(0, 1)}
+              </div>
+              <div>
+                <p class="text-xl font-semibold">{item.company}</p>
+                <p class="text-gray-600">{item.role}</p>
+              </div>
             </div>
-            <div>
-              <p class="text-xl font-semibold">{item.company}</p>
-              <p class="text-gray-600">{item.role}</p>
-            </div>
-          </div>
-          <p class="text-gray-600 sm:pt-3">{item.dates}</p>
-
-        </li>
-      ))}
+            <p class="text-gray-600 sm:pt-3">{item.dates}</p>
+          </li>
+        ))
+      }
     </ul>
   </section>
   <h2 class="mt-10 text-2xl font-bold">Get in touch</h2>
