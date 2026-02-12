@@ -4,7 +4,7 @@ description: "How would you structure your friendships table"
 pubDate: 2026-02-12
 ---
 
-# Learning React Native by Building a Useless Social App (and Accidentally Rethinking Database Design)
+## Learning React Native by Building a Social App (and Rethinking Database Design)
 
 I’m currently learning React Native, guided by the great Jonathan Mazin, and I decided early on that the best way to learn is building an actual application.
 
