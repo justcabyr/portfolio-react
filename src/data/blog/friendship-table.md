@@ -6,7 +6,7 @@ pubDate: 2026-02-12
 
 # Learning React Native by Building a Useless Social App (and Accidentally Rethinking Database Design)
 
-I’m currently learning React Native, guided by the great Jason, and I decided early on that the best way to learn is building an actual application.
+I’m currently learning React Native, guided by the great Jonathan Mazin, and I decided early on that the best way to learn is building an actual application.
 
 So I picked something intentionally simple: a tiny social app with exactly one feature.
 
@@ -32,8 +32,7 @@ Done. Ship it. It works.
 
 And honestly? For a learning project, that approach is usually fine. You can always modify things later.
 
-But then a friend casually mentioned something that stuck with me:  
-At his company, they don’t even have a development server. They ship straight to production.
+But then I remembered something a friend mentioned to me a while back: At his company, they don’t have a development server. They ship straight to production. Of course with code review, rollbacks and all that good stuff.
 
 That flipped a switch in my head.
 
@@ -41,54 +40,37 @@ That flipped a switch in my head.
 
 ## “What If This Was Production?”
 
-I started reframing the problem as if I were in a job interview.
+Better still, if this were to be a job interview, and someone asks:  
 
-Someone asks:  
 **“How would you structure a friendship table?”**
 
-Suddenly, the simple solution didn’t feel so simple anymore.
+And this begets the questions:
 
-Questions start piling up:
-
-- How do you prevent adding the same friend twice?
 - If user A adds user B, how do you stop user B from adding user A again as a duplicate row?
 - How do you enforce uniqueness without doing expensive checks everywhere?
 - Which column do you index?
-- Which one is the primary key?
 - How do you query friendships efficiently?
 - If you store (A → B), what happens when (B → A) shows up?
 
-That’s when things get messy.
-
 ---
 
-## From Tables to Graphs
+## So what's the fix?
 
-So I did what everyone does: I asked ChatGPT.
+I asked ChatGPT.
 
 **“How does Facebook store billions of friendships?”**
 
-The answer, unsurprisingly, was graphs.
+The answer was graphs. Social graphs. Nodes and edges. Users are nodes, friendships are edges.
 
-Social graphs. Nodes and edges. Users are nodes, friendships are edges.
+This reminded me of all algo assessments — graph traversal. But then, how do you query?
 
-That immediately reminded me of all those algorithm assessments—graph traversal, bidirectional edges, adjacency lists. Conceptually clean. Practically… still tricky when you’re working inside a relational database.
-
-The biggest issue wasn’t storage. It was querying.
-
-Do you query from user A?
-
-From user B?
-
-Do you sort first, then query?
-
-How do you guarantee consistency?
+Do you query from user A? From user B? Do you sort first, then query? How do you guarantee consistency?
 
 ---
 
 ## The “Orderless” Insight
 
-Then a friend (John) suggested something deceptively simple:
+Remember I said Jon was teaching me React Native, he suggested something:
 
 **Make the friendship orderless.**
 
@@ -103,8 +85,6 @@ Before inserting into the database:
 So:
 
 > Friendship between A and B is always (min(A,B), max(A,B))
-
-There is exactly one valid representation of that relationship.
 
 That one constraint solves a lot:
 
@@ -122,9 +102,9 @@ Every check follows the same rule:
 
 Implementing this meant writing proper SQL—sorting IDs before insertion, enforcing uniqueness, and querying correctly.
 
-This part was… frustrating.
+This part was… frustrating. I went back and forth with ChatGPT trying to get the right SQL and plpgSQL functions. I kept getting close-but-not-quite answers until I finally landed on something that worked.
 
-I went back and forth with ChatGPT trying to get the right SQL and PL/pgSQL functions. I kept getting close-but-not-quite answers until I finally landed on something that worked.
+// Add sql script
 
 At that point, the table design was solid.
 
@@ -132,13 +112,13 @@ Then Supabase entered the chat.
 
 I kept seeing references to RPCs and started wondering:
 
+// Add Supabase rpc call function
+
 - Is RPC a Supabase thing?
 - Is it PostgreSQL?
 - Is it something else entirely?
 
-Turns out, RPC (Remote Procedure Call) is just an old computing concept. Supabase exposes Postgres functions as RPC endpoints, which suddenly made everything click.
-
-Once I understood that, the whole system snapped into place.
+Turns out, RPC (Remote Procedure Call) is just an old computing concept. Supabase exposes Postgres functions as RPC endpoints, which suddenly made everything click. Once I understood that, it made a lot of sense.
 
 ---
 
@@ -159,7 +139,5 @@ All from an app that does almost nothing.
 ## So… How Would You Do It?
 
 If you were designing a friendship table for a social app—big or small—how would you structure it?
-
-Sometimes the most useful projects aren’t the ambitious ones. They’re the tiny, slightly pointless ones that force you to think deeply about fundamentals.
 
 Cheers.
