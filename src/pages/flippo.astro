@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+---
+
+<Layout>
+  <NavBar />
+  <h1 class="mb-6 font-serif text-5xl font-bold">Flippo</h1>
+  <div class="space-y-6 text-lg leading-relaxed">
+    <section class="space-y-3">
+      <h2 class="text-2xl font-bold">About Flippo</h2>
+      <p>
+        Flippo is a project scaffolding toolkit built on NestJS that helps you
+        spin up new applications quickly with sensible defaults, a clean
+        architecture, and batteries-included tooling.
+      </p>
+      <p>
+        It aims to reduce the friction of starting new backend services so you
+        can focus on the core logic of your product instead of boilerplate and
+        repetitive setup work.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-2xl font-bold">Legal</h2>
+      <p>
+        You can review Flippo&apos;s legal documents using the links below.
+      </p>
+      <ul class="list-disc space-y-2 pl-6 text-base">
+        <li>
+          <a href="/flippo/privacy" class="text-orange-600 hover:underline">
+            Privacy Policy
+          </a>
+        </li>
+        <li>
+          <a href="/flippo/terms" class="text-orange-600 hover:underline">
+            Terms of Service
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</Layout>
