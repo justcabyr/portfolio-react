@@ -2,6 +2,16 @@
   {
     "tree": [
       {
+        "name": "Flippo",
+        "description": "Flippo is a mobile app for staying close to the people who matter. Add friends with invite codes, show your personality with a profile color, and keep your list yours with block and report controls. Sign in with email, Google, or Apple and manage everything from one place.",
+        "link": "/flippo",
+        "image": "https://garden.jack.camera/Screenshot_2025-02-01_at_11.31.09%E2%80%AFPM_1738465273469_0.png"
+      }
+    ]
+  },
+  {
+    "tree": [
+      {
         "name": "NestJs Scaffold",
         "description": "NestJs Scaffold",
         "link": "https://github.com/justcabyr/nestjs-scaffold",
