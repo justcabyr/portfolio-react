@@ -5,27 +5,73 @@ import NavBar from '../../components/NavBar.astro';
 
 <Layout>
   <NavBar />
-  <h1 class="mb-6 font-serif text-4xl font-bold">Flippo Terms of Service</h1>
-  <div class="space-y-4 text-lg leading-relaxed">
-    <p>
-      These Terms of Service (&quot;Terms&quot;) govern your use of the Flippo
-      application and any related services.
-    </p>
-    <p>
-      Flippo is provided as-is, without any warranties, and is intended for use
-      by developers who understand the implications of using scaffolding tools
-      in their own projects. You are responsible for how you use Flippo, how
-      you deploy any generated code, and for complying with all applicable laws
-      and regulations.
-    </p>
-    <p>
-      By using Flippo, you agree that the author is not liable for any damages,
-      loss of data, or issues arising from the use or misuse of the tool or any
-      projects created with it.
-    </p>
-    <p class="text-sm text-gray-600">
-      Note: This is a basic placeholder terms document. Update this content with
-      your specific legal terms, license details, and limitations of liability.
-    </p>
+  <h1 class="mb-2 font-serif text-4xl font-bold">Terms of Service</h1>
+  <p class="mb-6 text-sm text-gray-600">
+    Last updated:
+    {' '}
+    {new Date().toLocaleDateString('en-US')}
+  </p>
+
+  <div class="space-y-6 text-lg leading-relaxed">
+    <section class="space-y-2">
+      <h2 class="text-xl font-semibold">1. Acceptance of Terms</h2>
+      <p>
+        By accessing or using this app, you agree to be bound by these Terms of
+        Service. If you do not agree, do not use the app.
+      </p>
+    </section>
+
+    <section class="space-y-2">
+      <h2 class="text-xl font-semibold">2. Use of the Service</h2>
+      <p>
+        You may use the app only for lawful purposes and in accordance with
+        these terms. You are responsible for your conduct and any content you
+        share. Do not use the app to harass, abuse, or harm others.
+      </p>
+    </section>
+
+    <section class="space-y-2">
+      <h2 class="text-xl font-semibold">3. Account</h2>
+      <p>
+        You must provide accurate information when creating an account. You are
+        responsible for keeping your account secure. You may delete your
+        account at any time from the Profile screen.
+      </p>
+    </section>
+
+    <section class="space-y-2">
+      <h2 class="text-xl font-semibold">4. Privacy</h2>
+      <p>
+        Your use of the app is also governed by our Privacy Policy. By using
+        the app, you consent to the collection and use of information as
+        described there.
+      </p>
+    </section>
+
+    <section class="space-y-2">
+      <h2 class="text-xl font-semibold">5. Termination</h2>
+      <p>
+        We may suspend or terminate your access to the app at any time for
+        violation of these terms or for any other reason. You may stop using
+        the app and delete your account at any time.
+      </p>
+    </section>
+
+    <section class="space-y-2">
+      <h2 class="text-xl font-semibold">6. Changes</h2>
+      <p>
+        We may update these terms from time to time. We will notify you of
+        material changes, for example by in-app notice or email. Continued use
+        of the app after changes constitutes acceptance of the updated terms.
+      </p>
+    </section>
+
+    <section class="space-y-2">
+      <h2 class="text-xl font-semibold">7. Contact</h2>
+      <p>
+        If you have questions about these Terms of Service, please contact us
+        through the app or at the support email provided in the app listing.
+      </p>
+    </section>
   </div>
 </Layout>
