@@ -4,11 +4,9 @@ description: "How would you structure your friendships table"
 pubDate: 2026-02-12
 ---
 
-## Learning React Native by Building a Social App (and Rethinking Database Design)
+## Building a Social App (and Rethinking Database Design)
 
-I’m currently learning React Native, guided by the great Jonathan Mazin, and I decided early on that the best way to learn is building an actual application.
-
-So I picked something intentionally simple: a tiny social app with exactly one feature.
+I wanted to build an app, so I picked something intentionally simple: a tiny social app with exactly one feature.
 
 Two users.  
 They’re friends.  
@@ -30,7 +28,7 @@ It had been a while since I’d done any serious database structuring, so my fir
 
 Done. Ship it. It works.
 
-And honestly? For a learning project, that approach is usually fine. You can always modify things later.
+And honestly? For a simple project, that approach is usually fine. You can always modify things later.
 
 But then I remembered something a friend mentioned to me a while back: At his company, they don’t have a development server. They ship straight to production. Of course with code review, rollbacks and all that good stuff.
 
@@ -67,10 +65,6 @@ This reminded me of all algo assessments — graph traversal. But then, how do y
 Do you query from user A? From user B? Do you sort first, then query? How do you guarantee consistency?
 
 ---
-
-## The “Orderless” Insight
-
-Remember I said Jon was teaching me React Native, he suggested something:
 
 **Make the friendship orderless.**
 
