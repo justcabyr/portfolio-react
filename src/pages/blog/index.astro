@@ -12,13 +12,11 @@ type DevToPostSummary = {
 };
 
 const posts = (await getDevToPosts()) as DevToPostSummary[];
-const devToProfile = posts[0]?.user?.username
-  ? `https://dev.to/${posts[0].user.username}`
-  : 'https://dev.to';
+const devToProfile = `https://dev.to/justcabyr`;
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'short',
-  day: 'numeric',
+  day: 'numeric'
 });
 ---
 

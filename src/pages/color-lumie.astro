@@ -1,22 +1,69 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
+
+const screenshotFiles = [
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 06.59.01.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 06.59.09.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 06.59.27.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 06.59.36.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 06.59.49.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 07.00.00.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 07.01.00.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 07.03.01.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 07.03.08.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 07.03.13.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 07.03.16.png',
+  'Simulator Screenshot - iPhone 17 Pro Max - 2026-04-21 at 07.03.24.png',
+];
+const screenshots = screenshotFiles.map(
+  (name) => `/color-lumie/${encodeURIComponent(name)}`
+);
+const appStoreUrl =
+  'https://apps.apple.com/us/app/color-lumie/id6760363446';
 ---
 
 <Layout>
   <NavBar />
-  <h1 class="mb-2 font-serif text-5xl font-bold">Color Lumie</h1>
-  <p class="mb-4 text-xl font-medium text-gray-800">Share Your Light</p>
-  <p class="mb-8">
-    <a
-      href="https://apps.apple.com/us/app/color-lumie/id6760363446"
-      class="text-orange-600 hover:underline"
-      target="_blank"
-      rel="noopener noreferrer"
+  <header class="mb-10 text-center sm:text-left">
+    <h1 class="mb-2 font-serif text-5xl font-bold">Color Lumie</h1>
+    <p class="mb-6 text-xl font-medium text-gray-800">Share Your Light</p>
+    <p class="mb-8">
+      <a
+        href={appStoreUrl}
+        class="inline-flex items-center justify-center rounded-full bg-[#1a1a1a] px-6 py-3 text-base font-medium text-[#f9f7f1] no-underline transition hover:bg-gray-800"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Download on the App Store
+      </a>
+    </p>
+  </header>
+
+  <section aria-label="App screenshots" class="mb-12 -mx-6 px-6">
+    <div
+      class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:thin]"
     >
-      Download on the App Store
-    </a>
-  </p>
+      {
+        screenshots.map((src, i) => (
+          <figure class="m-0 shrink-0 snap-center first:pl-0 last:pr-0">
+            <img
+              src={src}
+              alt={`Color Lumie screenshot ${i + 1} of ${screenshots.length}`}
+              width={430}
+              height={932}
+              loading={i < 2 ? 'eager' : 'lazy'}
+              decoding="async"
+              class="max-h-[min(70vh,560px)] w-auto rounded-[2rem] border border-black/5 shadow-lg shadow-black/10"
+            />
+          </figure>
+        ))
+      }
+    </div>
+    <p class="mt-1 text-center text-sm text-gray-500 sm:text-left">
+      Swipe left/right to browse screenshots
+    </p>
+  </section>
 
   <div class="space-y-8 text-lg leading-relaxed">
     <section class="space-y-4">
