@@ -1,10 +1,66 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Welcome from '../components/Welcome.astro';
 import NavBar from '../components/NavBar.astro';
+import { getDevToPosts } from '../lib/devto';
+
+type DevToPostSummary = {
+  slug: string;
+  title: string;
+  description?: string | null;
+  published_at?: string | null;
+  user?: { username?: string };
+};
+
+const posts = (await getDevToPosts()) as DevToPostSummary[];
+const devToProfile = `https://dev.to/justcabyr`;
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
 ---
 
 <Layout>
   <NavBar />
-  <Welcome />
+  <h1 class="mb-2 font-serif text-5xl font-bold">Blog</h1>
+  <p class="mb-8 text-base text-[#4a4a4a]">
+    Posts from{' '}
+    <a
+      href={devToProfile}
+      class="text-orange-600 hover:underline"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      dev.to
+    </a>
+  </p>
+  <div class="space-y-6 text-lg leading-relaxed">
+    {
+      posts.length === 0 ? (
+        <p class="text-base text-[#4a4a4a]">
+          No posts yet, or the feed could not be loaded. Check that
+          DEV_TO_API_KEY is set for builds.
+        </p>
+      ) : (
+        posts.map((post) => (
+          <div class="space-y-1">
+            <a
+              href={`/blog/${post.slug}`}
+              class="text-orange-600 hover:underline"
+            >
+              <p class="text-xl font-semibold">{post.title}</p>
+            </a>
+            {post.description ? (
+              <p class="text-base text-[#4a4a4a]">{post.description}</p>
+            ) : null}
+            <p class="text-sm text-[#6b6b6b]">
+              {post.published_at
+                ? dateFormatter.format(new Date(post.published_at))
+                : ''}
+            </p>
+          </div>
+        ))
+      )
+    }
+  </div>
 </Layout>
