@@ -1,13 +1,30 @@
-<header class="mb-10 flex items-center justify-between">
-  <a href="/">
-    <span class="text-lg font-medium">AbdulKabir</span>
-  </a>
+---
+const path = Astro.url.pathname;
+const onBlog = path === '/blog' || path.startsWith('/blog/');
+const onAbout = path === '/' || path === '';
+const onProjects = path === '/projects';
+const onNow = path === '/now';
 
-  <nav class="space-x-6 text-sm">
-    <a href="/" class="hover:underline">Home</a>
-    <a href="/blog" class="text-orange-600 hover:underline">Blog</a>
-    <a href="/projects" class="hover:underline">Projects</a>
-    <a href="/community" class="hover:underline">Community</a>
-  </nav>
-  <hr />
+const link = (active: boolean) =>
+  [active && 'text-orange-600', 'hover:underline'].filter(Boolean).join(' ');
+
+const brandClass = [
+  'text-lg font-medium',
+  onBlog && 'text-orange-600',
+].filter(Boolean).join(' ');
+---
+
+<header class="mb-10">
+  <div class="flex items-center justify-between">
+    <a href="/blog" class={brandClass}>
+      <span>AbdulKabir</span>
+    </a>
+
+    <nav class="space-x-6 text-sm">
+      <a href="/" class={link(onAbout)}>About</a>
+      <a href="/projects" class={link(onProjects)}>Projects</a>
+      <a href="/now" class={link(onNow)}>Now</a>
+    </nav>
+  </div>
+  <hr class="mt-6 border-0 border-t border-gray-200" />
 </header>
