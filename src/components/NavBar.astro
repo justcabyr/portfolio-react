@@ -1,7 +1,7 @@
 ---
 const path = Astro.url.pathname;
-const onBlog = path === '/blog' || path.startsWith('/blog/');
-const onAbout = path === '/' || path === '';
+const onBlog = path === '/' || path.startsWith('/blog/');
+const onAbout = path === '/about' || path.startsWith('/about/');
 const onProjects = path === '/projects';
 const onNow = path === '/now';
 
@@ -16,12 +16,12 @@ const brandClass = [
 
 <header class="mb-10">
   <div class="flex items-center justify-between">
-    <a href="/blog" class={brandClass}>
+    <a href="/" class={brandClass}>
       <span>AbdulKabir</span>
     </a>
 
     <nav class="space-x-6 text-sm">
-      <a href="/" class={link(onAbout)}>About</a>
+      <a href="/about" class={link(onAbout)}>About</a>
       <a href="/projects" class={link(onProjects)}>Projects</a>
       <a href="/now" class={link(onNow)}>Now</a>
     </nav>
