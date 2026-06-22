@@ -1,7 +1,7 @@
 ---
 const path = Astro.url.pathname;
-const onBlog = path === '/' || path.startsWith('/blog/');
-const onAbout = path === '/about' || path.startsWith('/about/');
+const onAbout = path === '/' || path === '';
+const onBlog = path === '/blog' || path.startsWith('/blog/');
 const onProjects = path === '/projects';
 const onNow = path === '/now';
 
@@ -10,7 +10,7 @@ const link = (active: boolean) =>
 
 const brandClass = [
   'text-lg font-medium',
-  onBlog && 'text-orange-600',
+  onAbout && 'text-orange-600',
 ].filter(Boolean).join(' ');
 ---
 
@@ -21,7 +21,7 @@ const brandClass = [
     </a>
 
     <nav class="space-x-6 text-sm">
-      <a href="/about" class={link(onAbout)}>About</a>
+      <a href="/blog" class={link(onBlog)}>Blog</a>
       <a href="/projects" class={link(onProjects)}>Projects</a>
       <a href="/now" class={link(onNow)}>Now</a>
     </nav>

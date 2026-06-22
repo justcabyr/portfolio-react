@@ -10,23 +10,14 @@ import NavBar from '../components/NavBar.astro';
     <p class="mb-10 text-base text-[#4a4a4a]">What&apos;s AbdulKabir up to?</p>
 
     <section class="space-y-3" aria-label="Current update">
-      <p class="text-sm text-gray-600">Apr 29</p>
+      <p class="text-sm text-gray-600">Jun 22</p>
       <p class="text-[#1a1a1a]">
-        I&apos;m refreshing this site, tinkering with Astro, and keeping a few
-        side projects moving in small slices. I&apos;ve been reading more than
-        I scroll lately, which is a welcome change. Still drinking too much
-        coffee and pretending that reorganizing my desk counts as deep work.
-        Curious about{' '}
-        <a
-          href="https://www.typescriptlang.org"
-          class="text-orange-600 hover:underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          TypeScript
-        </a>{' '}
-        patterns and trying to get better at saying &quot;not now&quot; to new
-        ideas.
+        It's June 22nd and we're not yet in the summer. I'm looking to try out
+        different sports this summer. Two tennis matches so far and I love it.
+        This past weekend I participated in a softball tournament at work and it
+        was a blast. We didn't win any match but it was super fun. I made an
+        home run. My manager said I brought my competitive spirit to the team.
+        Maybe I'll play more softball this summer.
       </p>
     </section>
 
@@ -37,28 +28,52 @@ import NavBar from '../components/NavBar.astro';
         <span class="now-chevron" aria-hidden="true"></span>
         Previously…
       </summary>
-      <div class="relative mt-8 border-l border-gray-300 pl-6 text-gray-700">
-        <span
-          class="absolute left-[-5px] top-1.5 block h-2 w-2 rounded-full bg-gray-400"
-          aria-hidden="true"
-        ></span>
-        <p class="mb-3 text-sm text-gray-600">Jan 20</p>
-        <p>
-          I was bouncing between too many rabbit holes—sketching app ideas,
-          half-finishing tutorials, and taking random photos on long walks. I
-          told myself I&apos;d learn{' '}
-          <a
-            href="https://developer.apple.com/swift/"
-            class="text-orange-600 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Swift
-          </a>{' '}
-          &quot;properly&quot; and mostly ended up refining playlists and
-          bookmarking docs I&apos;d read later. A familiar kind of busy that
-          wasn&apos;t quite momentum.
-        </p>
+      <div class="now-previous-timeline">
+        <div class="now-previous-entry">
+          <p class="mb-3 text-sm text-gray-600">May 25</p>
+          <!-- <p class="mb-2 font-semibold text-[#1a1a1a]">2026 Summer Trip</p> -->
+          <p class="mb-3">
+            2026 Summer Trip: I had a lovely vacation, visited friends and
+            family. Visited Calgary (+ went karting), Minnesota, and the Mall of
+            America, Downtown Chicago, from the bean to The Pier. Visited
+            Champaign, Illinois for my brother's Ph.D graduation, lots of
+            various parties and receptions. Met his friends. Travelled to San
+            Francisco, California for Google I/O 2026. Toured around the Google
+            Campus, Santa Clara, Mountain View, Menlo Park, Oakland, San
+            Francisco and visited the Golden Gate Bridge + Pier 39, sea lions
+            and the whole shebang.
+            <a
+              href="https://dev.to/justcabyr/2026-summer-trip-2amo"
+              class="text-orange-600 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read more
+            </a>
+          </p>
+        </div>
+        <div class="now-previous-entry">
+          <p class="mb-3 text-sm text-gray-600">Apr 29</p>
+          <p>
+            I&apos;m refreshing this site, tinkering with Astro, and keeping a
+            few side projects moving in small slices. I&apos;ve been reading
+            more than I scroll lately, which is a welcome change. Stopped
+            drinking coffee and started drinking more water. Decluttering the
+            house and reorganizing everything is legit a whole lot of work.
+          </p>
+        </div>
+        <div class="now-previous-entry">
+          <p class="mb-3 text-sm text-gray-600">Jan 20</p>
+          <p>
+            I started building my social app{' '}
+            <a href="/color-lumie" class="text-orange-600 hover:underline"
+              >Color Lumie</a
+            >—a private space for you and your closest friends to stay connected
+            through color instead of feeds. No endless scrolling or public
+            profiles: you set your daily Lumie, share your light, and see who
+            might need a little extra warmth today.
+          </p>
+        </div>
       </div>
     </details>
   </article>
@@ -85,5 +100,32 @@ import NavBar from '../components/NavBar.astro';
 
   #now-previous[open] .now-chevron {
     transform: rotate(90deg);
+  }
+
+  .now-previous-timeline {
+    position: relative;
+    margin-top: 2rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid #d1d5db;
+    color: #374151;
+  }
+
+  .now-previous-entry {
+    position: relative;
+  }
+
+  .now-previous-entry:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+
+  .now-previous-entry::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.5rem - 4.5px);
+    top: 0.375rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background-color: #9ca3af;
   }
 </style>
