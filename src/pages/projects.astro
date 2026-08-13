@@ -2,41 +2,29 @@
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
 import projects from '../data/projects.json';
-
-const items = projects.flatMap((project) => project.tree);
 ---
 
 <Layout>
   <NavBar />
-  <h1 class="mb-6 font-serif text-5xl font-bold">Projects I worked on</h1>
+  <h1 class="mb-2 font-serif text-5xl font-bold">Projects</h1>
+  <p class="mb-8 text-base text-[#4a4a4a]">Things I&apos;ve built or tinkered with.</p>
   <div class="space-y-6 text-lg leading-relaxed">
-  <p>
-    WIP.
-  </p>
-  <div class="mt-6 grid grid-cols-1 gap-6">
     {
-      items.map((item) => (
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group flex items-stretch gap-4 overflow-hidden rounded-xl border border-gray-200 p-4 shadow-sm transition hover:shadow-md"
-        >
-          <img
-            src={item.image}
-            alt={item.name}
-            class="h-32 w-32 flex-shrink-0 rounded-lg object-cover"
-            loading="lazy"
-          />
-          <div class="flex flex-1 flex-col justify-center">
-            <h2 class="text-lg font-bold text-gray-900 group-hover:text-orange-700">
-              {item.name}
-            </h2>
-            <p class="mt-2 text-sm text-gray-600">{item.description}</p>
-          </div>
-        </a>
+      projects.map((project) => (
+        <div class="space-y-1">
+          <a
+            href={project.url}
+            class="text-orange-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p class="text-xl font-semibold">{project.name}</p>
+          </a>
+          {project.description ? (
+            <p class="text-base text-[#4a4a4a]">{project.description}</p>
+          ) : null}
+        </div>
       ))
     }
-  </div>
   </div>
 </Layout>

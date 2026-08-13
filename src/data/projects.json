@@ -1,52 +1,27 @@
 [
   {
-    "tree": [
-      {
-        "name": "Color Lumie",
-        "description": "A private space to stay connected with your closest friends through color—your daily Lumie, invite-only sanctuary, and emotional sync without endless scrolling.",
-        "link": "/color-lumie",
-        "image": "https://garden.jack.camera/Screenshot_2025-02-01_at_11.31.09%E2%80%AFPM_1738465273469_0.png"
-      }
-    ]
+    "name": "Color Lumie",
+    "description": "A private space to stay connected with your closest friends through color—your daily Lumie, invite-only sanctuary, and emotional sync without endless scrolling.",
+    "url": "https://colorlumie.com/"
   },
   {
-    "tree": [
-      {
-        "name": "NestJs Scaffold",
-        "description": "NestJs Scaffold",
-        "link": "https://github.com/justcabyr/nestjs-scaffold",
-        "image": "https://garden.jack.camera/Screenshot_2025-02-01_at_11.31.09%E2%80%AFPM_1738465273469_0.png"
-      }
-    ]
+    "name": "NestJs Scaffold",
+    "description": "NestJs Scaffold",
+    "url": "https://github.com/justcabyr/nestjs-scaffold"
   },
   {
-    "tree": [
-      {
-        "name": "My GPT",
-        "description": "Access premium GPT services on a budget.",
-        "link": "https://github.com/justcabyr/my-gpt",
-        "image": "https://garden.jack.camera/Screenshot_2025-02-01_at_11.31.09%E2%80%AFPM_1738465273469_0.png"
-      }
-    ]
+    "name": "My GPT",
+    "description": "Access premium GPT services on a budget.",
+    "url": "https://github.com/justcabyr/my-gpt"
   },
   {
-    "tree": [
-      {
-        "name": "Node.js OpenAI",
-        "description": "An advanced AI-powered backend application; AI chat interfaces, semantic search, document QA, function calling, and AI images",
-        "link": "https://github.com/justcabyr/nodejs-openai",
-        "image": "https://garden.jack.camera/Screenshot_2025-02-01_at_11.31.09%E2%80%AFPM_1738465273469_0.png"
-      }
-    ]
+    "name": "Node.js OpenAI",
+    "description": "An advanced AI-powered backend application; AI chat interfaces, semantic search, document QA, function calling, and AI images",
+    "url": "https://github.com/justcabyr/nodejs-openai"
   },
   {
-    "tree": [
-      {
-        "name": "Leetcode Problems JS",
-        "description": "Leetcode problems in JavaScript",
-        "link": "https://github.com/justcabyr/leetcode-problems-js",
-        "image": "https://garden.jack.camera/Screenshot_2025-02-01_at_11.31.09%E2%80%AFPM_1738465273469_0.png"
-      }
-    ]
+    "name": "Leetcode Problems JS",
+    "description": "Leetcode problems in JavaScript",
+    "url": "https://github.com/justcabyr/leetcode-problems-js"
   }
 ]
