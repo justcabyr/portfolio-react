@@ -1,0 +1,141 @@
+<canvas id="cursor-field" class="cursor-field" aria-hidden="true"></canvas>
+
+<script>
+  const startCursorField = () => {
+    const canvas = document.querySelector('#cursor-field');
+    if (!(canvas instanceof HTMLCanvasElement)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const previous = window.__cursorField;
+    if (previous?.stop) previous.stop();
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const pointer = { x: window.innerWidth * 0.6, y: window.innerHeight * 0.35 };
+    const glow = { x: pointer.x, y: pointer.y };
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let frame = 0;
+    let running = true;
+
+    const colors = [
+      '255, 154, 82',
+      '253, 186, 116',
+      '253, 224, 138',
+      '251, 146, 60',
+    ];
+
+    const makeOrbs = () => {
+      const count = window.innerWidth < 700 ? 10 : 16;
+      return Array.from({ length: count }, (_, i) => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: 18 + Math.random() * 42,
+        color: colors[i % colors.length],
+        seed: Math.random() * Math.PI * 2,
+      }));
+    };
+
+    let orbs = [];
+
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      orbs = makeOrbs();
+    };
+
+    const onMove = (event) => {
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+    };
+
+    const onTouch = (event) => {
+      const touch = event.touches[0];
+      if (!touch) return;
+      pointer.x = touch.clientX;
+      pointer.y = touch.clientY;
+    };
+
+    const tick = () => {
+      if (!running) return;
+      frame = requestAnimationFrame(tick);
+
+      glow.x += (pointer.x - glow.x) * 0.12;
+      glow.y += (pointer.y - glow.y) * 0.12;
+
+      ctx.clearRect(0, 0, width, height);
+
+      const spotlight = ctx.createRadialGradient(glow.x, glow.y, 0, glow.x, glow.y, 280);
+      spotlight.addColorStop(0, 'rgba(255, 154, 82, 0.22)');
+      spotlight.addColorStop(0.45, 'rgba(253, 186, 116, 0.08)');
+      spotlight.addColorStop(1, 'rgba(253, 186, 116, 0)');
+      ctx.fillStyle = spotlight;
+      ctx.fillRect(0, 0, width, height);
+
+      const now = performance.now() / 1000;
+
+      for (const orb of orbs) {
+        const dx = pointer.x - orb.x;
+        const dy = pointer.y - orb.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const pull = dist < 320 ? (320 - dist) / 320 : 0;
+        const push = dist < 56 ? (56 - dist) / 56 : 0;
+
+        orb.vx += (dx / dist) * pull * 0.08;
+        orb.vy += (dy / dist) * pull * 0.08;
+        orb.vx -= (dx / dist) * push * 0.35;
+        orb.vy -= (dy / dist) * push * 0.35;
+        orb.vx += Math.cos(now * 0.6 + orb.seed) * 0.02;
+        orb.vy += Math.sin(now * 0.5 + orb.seed) * 0.02;
+        orb.vx *= 0.94;
+        orb.vy *= 0.94;
+        orb.x += orb.vx;
+        orb.y += orb.vy;
+
+        if (orb.x < -80) orb.x = width + 40;
+        if (orb.x > width + 80) orb.x = -40;
+        if (orb.y < -80) orb.y = height + 40;
+        if (orb.y > height + 80) orb.y = -40;
+
+        const radius = orb.r + pull * 18;
+        const gradient = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, radius);
+        gradient.addColorStop(0, `rgba(${orb.color}, 0.42)`);
+        gradient.addColorStop(0.55, `rgba(${orb.color}, 0.12)`);
+        gradient.addColorStop(1, `rgba(${orb.color}, 0)`);
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(orb.x, orb.y, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    };
+
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(frame);
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('touchmove', onTouch);
+      window.removeEventListener('resize', resize);
+    };
+
+    resize();
+    window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('touchmove', onTouch, { passive: true });
+    window.addEventListener('resize', resize);
+    tick();
+
+    window.__cursorField = { stop };
+  };
+
+  startCursorField();
+  document.addEventListener('astro:page-load', startCursorField);
+</script>

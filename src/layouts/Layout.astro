@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
+import CursorField from '../components/CursorField.astro';
 
 interface Props {
   bodyClass?: string;
@@ -38,6 +39,7 @@ const footerDefault = 'bg-[#f9f7f1]/80 text-gray-500 backdrop-blur-sm';
       <span class="blob blob-b"></span>
       <span class="blob blob-c"></span>
     </div>
+    <CursorField />
     <main class="page-shell mx-auto max-w-3xl px-6 py-10 pb-24">
       <slot />
     </main>
