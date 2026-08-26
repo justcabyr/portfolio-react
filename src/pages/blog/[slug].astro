@@ -37,7 +37,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
           ? dateFormatter.format(new Date(post.published_at))
           : ''}
       </p>
-      <h1 class="font-serif text-4xl font-bold">{post.title}</h1>
+      <h1 class="scribble-title font-serif text-4xl font-bold">{post.title}</h1>
       {post.description ? (
         <p class="text-lg text-[#4a4a4a]">{post.description}</p>
       ) : null}

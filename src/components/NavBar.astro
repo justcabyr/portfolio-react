@@ -6,25 +6,33 @@ const onProjects = path === '/projects';
 const onNow = path === '/now';
 
 const link = (active: boolean) =>
-  [active && 'text-orange-600', 'hover:underline'].filter(Boolean).join(' ');
+  [
+    'site-nav-link',
+    active && 'text-orange-600 is-active',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
 const brandClass = [
-  'text-lg font-medium',
-  onAbout && 'text-orange-600',
-].filter(Boolean).join(' ');
+  'site-brand text-lg font-medium',
+  onAbout && 'text-orange-600 is-active',
+]
+  .filter(Boolean)
+  .join(' ');
 ---
 
-<header class="mb-10">
-  <div class="flex items-center justify-between">
+<header class="site-header mb-10">
+  <div
+    class="flex items-center justify-between rounded-full border border-orange-100/80 bg-white/70 px-5 py-3 shadow-sm shadow-orange-100 backdrop-blur-md"
+  >
     <a href="/" class={brandClass}>
       <span>AbdulKabir</span>
     </a>
 
-    <nav class="space-x-6 text-sm">
+    <nav class="site-nav space-x-5 text-sm">
       <a href="/blog" class={link(onBlog)}>Blog</a>
       <a href="/projects" class={link(onProjects)}>Projects</a>
       <a href="/now" class={link(onNow)}>Now</a>
     </nav>
   </div>
-  <hr class="mt-6 border-0 border-t border-gray-200" />
 </header>

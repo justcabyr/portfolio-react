@@ -22,7 +22,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
 
 <Layout>
   <NavBar />
-  <h1 class="mb-2 font-serif text-5xl font-bold">Blog</h1>
+  <h1 class="scribble-title mb-2 font-serif text-5xl font-bold">Blog</h1>
   <p class="mb-8 text-base text-[#4a4a4a]">
     Posts from{' '}
     <a
@@ -34,7 +34,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
       dev.to
     </a>
   </p>
-  <div class="space-y-6 text-lg leading-relaxed">
+  <div class="stagger space-y-6 text-lg leading-relaxed">
     {
       posts.length === 0 ? (
         <p class="text-base text-[#4a4a4a]">
@@ -43,7 +43,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
         </p>
       ) : (
         posts.map((post) => (
-          <div class="space-y-1">
+          <div class="fun-row space-y-1">
             <a
               href={`/blog/${post.slug}`}
               class="text-orange-600 hover:underline"
