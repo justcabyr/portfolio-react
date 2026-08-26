@@ -26,12 +26,12 @@ const appStoreUrl =
 <Layout>
   <NavBar />
   <header class="mb-10 text-center sm:text-left">
-    <h1 class="mb-2 font-serif text-5xl font-bold">Color Lumie</h1>
+    <h1 class="scribble-title mb-2 font-serif text-5xl font-bold">Color Lumie</h1>
     <p class="mb-6 text-xl font-medium text-gray-800">Share Your Light</p>
     <p class="mb-8">
       <a
         href={appStoreUrl}
-        class="inline-flex items-center justify-center rounded-full bg-[#1a1a1a] px-6 py-3 text-base font-medium text-[#f9f7f1] no-underline transition hover:bg-gray-800"
+        class="cta-bounce inline-flex items-center justify-center rounded-full bg-[#1a1a1a] px-6 py-3 text-base font-medium text-[#f9f7f1] no-underline transition hover:bg-gray-800"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -54,7 +54,7 @@ const appStoreUrl =
               height={932}
               loading={i < 2 ? 'eager' : 'lazy'}
               decoding="async"
-              class="max-h-[min(70vh,560px)] w-auto rounded-[2rem] border border-black/5 shadow-lg shadow-black/10"
+              class="shot-card max-h-[min(70vh,560px)] w-auto rounded-[2rem] border border-black/5 shadow-lg shadow-black/10"
             />
           </figure>
         ))

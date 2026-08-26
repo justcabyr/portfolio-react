@@ -28,19 +28,12 @@ const workExperience = [
 ];
 ---
 
-<h1 class="mb-6 font-serif text-5xl font-bold">Welcome</h1>
-<div class="space-y-6 text-lg leading-relaxed">
+<h1 class="scribble-title mb-6 font-serif text-5xl font-bold">Welcome</h1>
+<div class="stagger space-y-6 text-lg leading-relaxed">
   <p>
     AbdulKabir here. Over the past years my career has spanned software
-    engineering and product support. I've worked as a backend engineer,
-    fullstack engineer, customer experience engineer, technical support engineer
-    and most recently, Developer succes.
-  </p>
-
-  <p>
-    I love building and I also love working with people. Consuming highly technical engineering work and
-    translating said work into consumable bits for clients/business teams...
-    That's me.
+    engineering, technical support and most recently, developer succes. I love
+    building and I love working with people.
   </p>
 
   <p>
@@ -63,9 +56,9 @@ const workExperience = [
     <ul class="space-y-4">
       {
         workExperience.map((item) => (
-          <li class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <li class="fun-row flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <div class="flex items-start gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-sm font-semibold text-gray-700">
+              <div class="avatar-pop flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-sm font-semibold text-gray-700">
                 {item.company
                   .split(' ')
                   .map((word) => word[0])
@@ -190,7 +183,7 @@ const workExperience = [
   <div class="flex gap-6">
     <a
       href="mailto:justcabyr@gmail.com"
-      class="flex items-center gap-2 text-orange-600 hover:underline"
+      class="fun-link text-orange-600 hover:underline"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +202,7 @@ const workExperience = [
     </a>
     <a
       href="https://www.linkedin.com/in/justcabyr/"
-      class="flex items-center gap-2 text-orange-600 hover:underline"
+      class="fun-link text-orange-600 hover:underline"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -232,7 +225,7 @@ const workExperience = [
     </a>
     <a
       href="https://github.com/justcabyr"
-      class="flex items-center gap-2 text-orange-600 hover:underline"
+      class="fun-link text-orange-600 hover:underline"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
